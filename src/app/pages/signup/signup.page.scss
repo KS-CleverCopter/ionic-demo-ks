@@ -1,0 +1,15 @@
+.form-container {
+    height: 100%;
+    display: flex;
+    flex-grow: 2;
+    flex-direction: column;
+    .stretch-elements {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .button-area{
+        border-top:1px solid var(--ion-color-medium);
+    }
+}

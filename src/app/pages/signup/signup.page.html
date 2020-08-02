@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>SignUp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <ion-text color="medium" class="subtext ion-text-center ion-text-capitalize">
+      <p>
+        Wammer turns sharing fun photos & videos with your friends into a game.
+      </p>
+    </ion-text>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="ion-padding-top ion-padding-bottom stretch-elements">
+      <div class="input-area">
+        <ion-item class="ion-no-padding">
+          <ion-label color="medium" position="floating">First Name
+          </ion-label>
+          <ion-input required formControlName="firstname" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label color="medium" position="floating">Last Name
+          </ion-label>
+          <ion-input required formControlName="lastname" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label color="medium" position="floating">E-Mail
+          </ion-label>
+          <ion-input required formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding ion-align-items-center">
+          <ion-label color="medium" position="floating">Password
+          </ion-label>
+          <ion-input required value="signupForm.password" formControlName="password" type="password"
+            *ngIf="!showPassword">
+
+          </ion-input>
+          <ion-input required value="signupForm.password" formControlName="password" type="text" *ngIf="showPassword">
+
+          </ion-input>
+          <ion-icon color="primary" slot="end" (click)="togglePassword()" [name]="passwordIcon"></ion-icon>
+        </ion-item>
+        <div class="ion-no-padding ion-padding-top ion-padding-bottom">
+          <ion-text color="medium" class="subtext ion-text-center">
+            <p class="ion-no-padding">
+              By continuing you agree to the Wammer <br> <a href="#">Terms of Service </a> and <a href="#">Privacy
+                Policy.
+              </a>
+            </p>
+          </ion-text>
+        </div>
+      </div>
+      <div class="button-area">
+        <ion-row class="ion-padding-top">
+          <ion-col size="6" class="ion-align-items-center">
+            <ion-button expand="block" block color="primary" [routerLink]="['/login']" routerDirection="back">
+              Back
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button expand="block" fill="outline" color="primary" type="submit" [disabled]="signupForm.invalid">
+              Next
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+  </div>
+</ion-content>
